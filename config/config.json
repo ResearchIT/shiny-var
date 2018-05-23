@@ -1,0 +1,33 @@
+{
+	"files":{
+		"VCF":{
+			"B73":{
+				"Mo17":"data/vcf/b73.maize_mo17_agp1.vcf.gz",
+				"W22":"data/vcf/b73.maize_w22_agp2.vcf.gz"
+			},
+			"Mo17":{
+				"B73":"data/vcf/mo17.maize_b73_agp4.vcf.gz",
+				"W22":"data/vcf/mo17.maize_w22_agp2.vcf.gz"
+			},
+			"W22":{
+				"B73":"data/vcf/w22.maize_b73_agp4.vcf.gz",
+				"Mo17":"data/vcf/w22.maize_mo17_agp1.vcf.gz"
+			}
+		},
+		"genes":{
+			"B73":"data/genes/B73.csv",
+			"W22":"data/genes/W22.csv",
+			"Mo17":"No Gene models available yet"
+		},
+		"txdb":{
+			"B73":"data/txdb/Zm.B73.Zm00001d.2.sqlite",
+			"W22":"data/txdb/Zm.W22.Zm00004a.1.sqlite"
+		},
+		"seq_ont":"data/obo/so_variants.obo"
+	},
+	"genomes":{
+		"B73":"B73",
+		"Mo17":"Mo17",
+		"W22":"W22"
+	}
+}

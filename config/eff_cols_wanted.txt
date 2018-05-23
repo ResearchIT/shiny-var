@@ -1,0 +1,12 @@
+seqnames
+start
+end
+strand
+REF
+varAllele
+tx_name
+CONSEQUENCE
+REFCODON
+VARCODON
+REFAA
+VARAA
