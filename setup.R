@@ -6,3 +6,6 @@ install.packages("ontologyIndex")
 install.packages("jsonlite")
 install.packages("DT")
 install.packages("shiny")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("GenomicFeatures")
