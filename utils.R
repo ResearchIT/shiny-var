@@ -4,6 +4,7 @@ library("jsonlite")
 
 config <- jsonlite::read_json("config/config.json")
 genomes <- config$genomes
+print(genomes)
 genes <- lapply(config$files$genes,function(x){
   if(file.exists(x)){
     out=fread(x,header = F)$V1
