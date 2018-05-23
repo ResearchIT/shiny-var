@@ -1,11 +1,14 @@
 r = getOption("repos") 
 r["CRAN"] = "https://mirror.las.iastate.edu/CRAN/"
 options(repos = r)
-install.packages("data.table")
-install.packages("ontologyIndex")
-install.packages("jsonlite")
-install.packages("DT")
-install.packages("shiny")
 
-source("https://bioconductor.org/biocLite.R")
-biocLite("GenomicFeatures")
+all_pkgs = c("data.table","ontologyIndex","jsonlite","DT","shiny")
+wanted_pkgs <- setdiff(all_pkgs, installed.packages())
+if(length(wanted_pkgs)>0){
+  install.packages(all_pkgs)  
+}
+
+if(!"GenomicFeatures" %in% installed.packages()){
+  source("https://bioconductor.org/biocLite.R")
+  biocLite("GenomicFeatures")  
+}
