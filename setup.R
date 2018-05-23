@@ -1,0 +1,5 @@
+install.packages("data.table")
+install.packages("ontologyIndex")
+install.packages("jsonlite")
+install.packages("DT")
+install.packages("shiny")
