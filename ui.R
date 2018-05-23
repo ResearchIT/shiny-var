@@ -1,3 +1,6 @@
+source("filterSNPs.R")
+source("utils.R")
+
 shinyUI(fluidPage(
   titlePanel("Query SNPs mapped between Maize Inbred Genomes"),
   

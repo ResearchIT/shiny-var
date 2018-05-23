@@ -1,8 +1,5 @@
 library(DT)
 library(shiny)
-source("filterSNPs.R")
-source("utils.R")
-
 
 shinyServer(function(input, output, session) {
   observe({
