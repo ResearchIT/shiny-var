@@ -1,3 +1,6 @@
+r = getOption("repos") 
+r["CRAN"] = "https://mirror.las.iastate.edu/CRAN/"
+options(repos = r)
 install.packages("data.table")
 install.packages("ontologyIndex")
 install.packages("jsonlite")
