@@ -1,5 +1,8 @@
+library(shiny)
+library(DT)
 source("filterSNPs.R")
 source("utils.R")
+source("genomeTools.R")
 
 shinyUI(fluidPage(
   titlePanel("Query SNPs mapped between Maize Inbred Genomes"),
@@ -9,6 +12,13 @@ shinyUI(fluidPage(
       selectInput("baseGenome", label = h3("Base Genome"), 
                   choices = genomes,
                   selected = "B73"),
+      fileInput("bed", "Choose bed file",
+                multiple = FALSE,
+                accept = c("text/csv",
+                           "text/comma-separated-values,text/plain",
+                           ".bed")),
+      downloadLink("bedExample", "Bed Example"),
+      downloadButton('getRegionSeq', 'Download'),
       selectInput("alignGenome", label = h3("Aligned Genome"), 
                   choices = setdiff(genomes,"B73")),
       textInput("locus", label = h5("Locus"), value = "Chr2:258000-259000"),

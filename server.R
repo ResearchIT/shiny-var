@@ -76,5 +76,17 @@ shinyServer(function(input, output, session) {
       out
     }
   }))
+  
+  output$getRegionSeq <- downloadHandler(
+    filename = "sequences.txt",
+    content = function(file){
+      write.table(getBedFasta(input$bed$datapath),file,row.names=F,sep = "\t",col.names = F,quote = F)
+      }
+  )
+  output$bedExample <- downloadHandler(
+    filename = "example.bed",
+    content = function(file){
+        file.copy("test.bed", file)
+      }
+  )
 })
-
