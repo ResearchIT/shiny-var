@@ -11,4 +11,7 @@ if(length(wanted_pkgs)>0){
 if(!"GenomicFeatures" %in% installed.packages()){
   source("https://bioconductor.org/biocLite.R")
   biocLite("GenomicFeatures")  
+}if(!"GenomicFeatures" %in% installed.packages()){
+  source("https://bioconductor.org/biocLite.R")
+  biocLite("Rsamtools")
 }
