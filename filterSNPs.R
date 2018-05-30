@@ -45,7 +45,7 @@ getSNPs <-  function(baseGenome,alignGenome,locus){
   vcf_setregion(vcffile, chr,start_pos,end_pos)
   
   all_snps <- NULL
-  while(vcf_parseNextSNP(vcffile)){
+  while(vcf_parseNextLine(vcffile)){
     chr <- vcf_getChrom(vcffile)
     pos <- vcf_getPos(vcffile)
     ref <- vcf_getRef(vcffile)
@@ -110,7 +110,10 @@ getSNPEffects <-  function(geneID,baseGenome,alignGenome,effects){
   
   
   all_snps <- NULL 
-  while(vcf_parseNextSNP(vcffile)){
+  while(vcf_parseNextLine(vcffile)){
+    if(vcf_isINDEL(vcffile)){
+      print("INDEL")
+    }
     chr <- vcf_getChrom(vcffile)
     pos <- vcf_getPos(vcffile)
     ref_allele <- vcf_getRef(vcffile)
