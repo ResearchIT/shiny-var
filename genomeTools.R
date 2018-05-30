@@ -1,7 +1,6 @@
 library("Rsamtools")
 library("data.table")
 
-
 fasta_file <- Rsamtools::FaFile("data/genome/maize.W22.AGPv2.fa.ragz")
 
 getBedFasta <- function(bedFile){
