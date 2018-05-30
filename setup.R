@@ -1,5 +1,5 @@
 r = getOption("repos") 
-r["CRAN"] = "https://mirror.las.iastate.edu/CRAN/"
+r["CRAN"] = "https://cran.mtu.edu/"
 options(repos = r)
 
 all_pkgs = c("data.table","ontologyIndex","jsonlite","DT","shiny","WhopGenome")
