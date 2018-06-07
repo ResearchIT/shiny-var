@@ -8,12 +8,9 @@ if(length(wanted_pkgs)>0){
   install.packages(wanted_pkgs)
 }
 
-if(!"GenomicFeatures" %in% installed.packages()){
-  source("https://bioconductor.org/biocLite.R")
-  biocLite("GenomicFeatures")  
-}
-
-if(!"Rsamtools" %in% installed.packages()){
-  source("https://bioconductor.org/biocLite.R")
-  biocLite("Rsamtools")
+source("https://bioconductor.org/biocLite.R")
+all_bioc <- c("GenomicFeatures","Rsamtools")
+wanted_bioc <- setdiff(all_bioc, installed.packages())
+if(length(wanted_bioc)>0){
+	biocLite(wanted_bioc)
 }

@@ -1,0 +1,9 @@
+app/data
+data
+data.tar
+data.tar.gz
+README*
+*Rproj
+LICENSE
+build.sh
+run.sh

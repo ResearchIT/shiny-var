@@ -24,9 +24,9 @@
 			"W22":"data/txdb/Zm.W22.Zm00004a.1.sqlite"
 		},
 		"genomes":{
-			"B73":"data/genome/Zea_mays.AGPv4.dna.toplevel.fa.ragz",
-			"Mo17":"data/genome/Zm-Mo17-REFERENCE-CAU-1.0.fa.ragz",
-			"W22":"data/genome/maize.W22.AGPv2.fa.ragz"
+			"B73":"data/genome/Zea_mays.AGPv4.dna.toplevel.fa.rz",
+			"Mo17":"data/genome/Zm-Mo17-REFERENCE-CAU-1.0.fa.rz",
+			"W22":"data/genome/maize.W22.AGPv2.fa.rz"
 		},
 		"seq_ont":"data/obo/so_variants.obo"
 	},

@@ -27,12 +27,11 @@ COPY shiny-server.conf /etc/shiny-server/
 COPY shiny-server.sh /usr/bin/shiny-server.sh
 
 RUN mkdir -p /srv/shiny-server/shiny-var
-RUN ls
-RUN git clone https://github.com/wkpalan/shiny-var.git /srv/shiny-server/shiny-var
+COPY app/setup.R /srv/shiny-server/shiny-var/setup.R
 RUN sed -i 's/make/make -j8/g' /usr/lib/R/etc/Renviron
 RUN Rscript /srv/shiny-server/shiny-var/setup.R
 
-RUN wget -O data.tar.gz https://osf.io/rwvhe/download && tar -xvf data.tar.gz && rm data.tar.gz && mv /data /srv/shiny-server/shiny-var/
+COPY app/ /srv/shiny-server/shiny-var/
 
 EXPOSE 80
 

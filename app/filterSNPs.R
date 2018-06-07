@@ -167,3 +167,5 @@ getGeneRange <- function(geneID,baseGenome){
   genes(txDB[[baseGenome]],filter=list(gene_id=geneID))
 }
 
+
+?runApp
