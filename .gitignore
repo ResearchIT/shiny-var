@@ -5,4 +5,5 @@
 data/*
 code/
 *tar.gz
+*tar
 .osfcli.config
