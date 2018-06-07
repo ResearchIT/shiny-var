@@ -80,7 +80,8 @@ shinyServer(function(input, output, session) {
   output$getRegionSeq <- downloadHandler(
     filename = "sequences.txt",
     content = function(file){
-      write.table(getBedFasta(input$bed$datapath),file,row.names=F,sep = "\t",col.names = F,quote = F)
+    	baseGenome <- isolate(input$baseGenome)
+      write.table(getBedFasta(input$bed$datapath,baseGenome),file,row.names=F,sep = "\t",col.names = F,quote = F)
       }
   )
   output$bedExample <- downloadHandler(

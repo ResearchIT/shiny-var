@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.12.4];shiny[1.1.0];selectize[0.11.2];font-awesome[4.7.0];htmlwidgets[1.2];datatables-css[0.0.0];datatables-binding[0.4];crosstalk[1.0.0];bootstrap[3.3.7]</script>
+<script src="shared/json2-min.js"></script>
+<script src="shared/jquery.min.js"></script>
+<link href="shared/shiny.css" rel="stylesheet" />
+<script src="shared/shiny.min.js"></script>
+<link href="shared/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
+<!--[if lt IE 9]>
+<script src="shared/selectize/js/es5-shim.min.js"></script>
+<![endif]-->
+<script src="shared/selectize/js/selectize.min.js"></script>
+<link href="shared/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<script src="htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="datatables-binding-0.4/datatables.js"></script>
+<link href="crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="shared/bootstrap/shim/html5shiv.min.js"></script>
+<script src="shared/bootstrap/shim/respond.min.js"></script>  <title>Query SNPs mapped between Maize Inbred Genomes</title>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Query SNPs mapped between Maize Inbred Genomes</h2>
+    <div class="row">
+      <div class="col-sm-2">
+        <form class="well">
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="baseGenome">
+              <h3>Base Genome</h3>
+            </label>
+            <div>
+              <select id="baseGenome"><option value="B73" selected>B73</option>
+<option value="Mo17">Mo17</option>
+<option value="W22">W22</option></select>
+              <script type="application/json" data-for="baseGenome" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label>Choose bed file</label>
+            <div class="input-group">
+              <label class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                  Browse...
+                  <input id="bed" name="bed" type="file" style="display: none;" accept="text/csv,text/comma-separated-values,text/plain,.bed"/>
+                </span>
+              </label>
+              <input type="text" class="form-control" placeholder="No file selected" readonly="readonly"/>
+            </div>
+            <div id="bed_progress" class="progress progress-striped active shiny-file-input-progress">
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+          <a id="getRegionSeq" class="btn btn-default shiny-download-link " href="" target="_blank" download>
+            <i class="fa fa-download"></i>
+            Get Fa for BED
+          </a>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="alignGenome">
+              <h3>Aligned Genome</h3>
+            </label>
+            <div>
+              <select id="alignGenome"><option value="Mo17" selected>Mo17</option>
+<option value="W22">W22</option></select>
+              <script type="application/json" data-for="alignGenome" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label for="locus">
+              <h5>Locus</h5>
+            </label>
+            <input id="locus" type="text" class="form-control" value="Chr2:258000-259000"/>
+          </div>
+          <span class="help-block">e.g. Chr1:1000000-2000000</span>
+          <button id="getLocSNPs" type="button" class="btn btn-default action-button">Get Variants</button>
+          <hr/>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="geneID">
+              <h5>Gene ID</h5>
+            </label>
+            <div>
+              <select id="geneID" class="form-control"></select>
+              <script type="application/json" data-for="geneID">{"maxOptions":5,"maxItems":1}</script>
+            </div>
+          </div>
+          <span class="help-block">e.g. Zm00001d002960</span>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="effectType">
+              <h5>Effect</h5>
+            </label>
+            <div>
+              <select id="effectType" class="form-control"></select>
+              <script type="application/json" data-for="effectType">{"maxOptions":1000,"maxItems":5}</script>
+            </div>
+          </div>
+          <button id="getGeneSNPs" type="button" class="btn btn-default action-button">Get Gene Variants</button>
+        </form>
+      </div>
+      <div class="col-sm-8">
+        <h2>Summary</h2>
+        <div id="genome_txt" class="shiny-text-output"></div>
+        <div id="geneID_txt" class="shiny-text-output"></div>
+        <h2>SNP Location</h2>
+        <div id="SNPLocation" style="width:100%; height:auto; " class="datatables html-widget html-widget-output"></div>
+        <h2>SNP Effects</h2>
+        <div id="SNPEffect" style="width:100%; height:auto; " class="datatables html-widget html-widget-output"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

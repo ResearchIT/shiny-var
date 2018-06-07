@@ -23,6 +23,11 @@
 			"B73":"data/txdb/Zm.B73.Zm00001d.2.sqlite",
 			"W22":"data/txdb/Zm.W22.Zm00004a.1.sqlite"
 		},
+		"genomes":{
+			"B73":"data/genome/Zea_mays.AGPv4.dna.toplevel.fa.ragz",
+			"Mo17":"data/genome/Zm-Mo17-REFERENCE-CAU-1.0.fa.ragz",
+			"W22":"data/genome/maize.W22.AGPv2.fa.ragz"
+		},
 		"seq_ont":"data/obo/so_variants.obo"
 	},
 	"genomes":{
