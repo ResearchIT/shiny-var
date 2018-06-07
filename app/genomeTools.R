@@ -1,4 +1,4 @@
-library("Rsamtools")
+
 
 getBedFasta <- function(bedFile,baseGenome){
 	fa_loc <- config$files$genomes[[baseGenome]]

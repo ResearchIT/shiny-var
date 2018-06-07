@@ -1,6 +1,4 @@
-library("GenomicFeatures")
-library("WhopGenome")
-library("data.table")
+
 
 if(F){
   txDB = list()

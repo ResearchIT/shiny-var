@@ -1,6 +1,9 @@
 library("data.table")
 library("ontologyIndex")
 library("jsonlite")
+library("GenomicFeatures")
+library("WhopGenome")
+library("Rsamtools")
 
 config <- jsonlite::read_json("config/config.json")
 genomes <- config$genomes

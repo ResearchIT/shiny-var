@@ -1,7 +1,7 @@
 library(shiny)
 library(DT)
-source("filterSNPs.R")
 source("utils.R")
+source("filterSNPs.R")
 source("genomeTools.R")
 
 shinyUI(fluidPage(
