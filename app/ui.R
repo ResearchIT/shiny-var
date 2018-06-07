@@ -3,7 +3,6 @@ library(DT)
 source("filterSNPs.R")
 source("utils.R")
 source("genomeTools.R")
-dir("data/genome",full.names = T)
 
 shinyUI(fluidPage(
   titlePanel("Query SNPs mapped between Maize Inbred Genomes"),
