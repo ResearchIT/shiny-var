@@ -6,8 +6,6 @@ else
 	echo "The data directory already exists"
 fi
 
-if [[ -f ]]
-
 # docker run -it \
 docker run -d \
 	-p 3838:80 \
