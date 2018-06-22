@@ -5,7 +5,7 @@ library("GenomicFeatures")
 library("WhopGenome")
 library("Rsamtools")
 
-config <- jsonlite::read_json("config/config.json")
+config <- jsonlite::read_json("data/config/config.json")
 genomes <- config$genomes
 print(genomes)
 genes <- lapply(config$files$genes,function(x){
