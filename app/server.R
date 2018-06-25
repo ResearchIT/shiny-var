@@ -87,7 +87,7 @@ shinyServer(function(input, output, session) {
   output$bedExample <- downloadHandler(
     filename = "example.bed",
     content = function(file){
-        file.copy("test.bed", file)
+        file.copy("test/test.bed", file)
       }
   )
 })

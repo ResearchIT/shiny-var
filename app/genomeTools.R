@@ -3,6 +3,7 @@
 getBedFasta <- function(bedFile,baseGenome){
 	fa_loc <- config$files$genomes[[baseGenome]]
 	fasta_file <- FaFile(fa_loc)
+	print(scanFaIndex(fasta_file))
   data<-fread(bedFile)
   bed <- with(data, GRanges(chr, IRanges(start, end), strand, id=id))
   tmp_range <- GRanges(c("chr1","chr2"),ranges = IRanges(start=c(1000,2000),end=c(2000,3000)))
