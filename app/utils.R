@@ -7,7 +7,6 @@ library("Rsamtools")
 
 config <- jsonlite::read_json("data/config/config.json")
 genomes <- config$genomes
-print(genomes)
 genes <- lapply(config$files$genes,function(x){
   if(file.exists(x)){
     out=fread(x,header = F)$V1
@@ -17,7 +16,7 @@ genes <- lapply(config$files$genes,function(x){
   out
 })
 
-get_genomes <- function(){
+getGenomes <- function(){
   config <- jsonlite::read_json("data/config/config.json")
   return(config$genomes)
 }

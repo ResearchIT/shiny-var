@@ -1,11 +1,11 @@
 library(DT)
 library(shiny)
+source("utils.R")
 
 shinyServer(function(input, output, session) {
   observe({
-    updateSelectInput(session, 
-                      "alignGenome",
-                      choices=setdiff(genomes,input$baseGenome))
+    updateSelectInput(session, 'baseGenome', choices = getGenomes())
+    updateSelectInput(session, "alignGenome", choices=setdiff(genomes,input$baseGenome))
     updateSelectizeInput(session, 'geneID', choices = genes[[input$baseGenome]], server = TRUE)
     updateSelectizeInput(session, 'effectType', choices = seq_vars$Name, server = TRUE)
   })

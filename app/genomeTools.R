@@ -1,3 +1,4 @@
+source("https://bioconductor.org/biocLite.R")
 
 
 getBedFasta <- function(bedFile,baseGenome){

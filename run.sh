@@ -1,6 +1,5 @@
 docker pull wkpalan/shiny-var
 
-
 # docker run -it \
 if [ -d "/lss/research/vollbrec-lab" ]
 then

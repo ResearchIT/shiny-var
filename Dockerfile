@@ -1,8 +1,7 @@
 FROM researchit/shiny-server
 MAINTAINER Kokulapalan Wimalanathan <kokulapalan@gmail.com>
-ENV REFRESHED_AT 2018-06-22
+ENV REFRESHED_AT 2018-07-17
 ENV TZ=America/Chicago
-# ENV DEBIAN_FRONTEND=noninteractive
 
 RUN echo "America/Chicago" > /etc/timezone
 
@@ -10,15 +9,15 @@ RUN echo "America/Chicago" > /etc/timezone
 RUN yum -y install openssl-devel libcurl-devel mariadb-devel libxml2 libxml2-devel
 
 #Change the Rscript to enable multicore installations
-#RUN sed -i 's/make/make -j8/g' /usr/lib64/R/etc/Renviron
 RUN ls
 
 #Install the R packages
-RUN R -e 'install.packages(c("data.table","ontologyIndex","jsonlite","DT","WhopGenome"), repos="http://cran.us.r-project.org",Ncpus=8)'
-RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("GenomicFeatures"));'
-RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("Rsamtools"));'
+RUN R -e 'install.packages(c("data.table","ontologyIndex","jsonlite","WhopGenome"), repos="https://mirror.las.iastate.edu/CRAN/", Ncpus=8, INSTALL_opts="--no-html")'
+RUN R -e 'install.packages(c("DT","shiny"), repos="https://cran.rstudio.com/", Ncpus=8,INSTALL_opts="--no-html")'
+RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("GenomicFeatures"),Ncpus=8,INSTALL_opts="--no-html");'
+RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("Rsamtools"),Ncpus=8,INSTALL_opts="--no-html");'
 
-#Copy the app files to the correct location and install needed packages
+# #Copy the app files to the correct location and install needed packages
 COPY app/ /srv/shiny-server/shiny-var/
 
 EXPOSE 3838

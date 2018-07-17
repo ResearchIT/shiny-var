@@ -9,9 +9,7 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      selectInput("baseGenome", label = h3("Base Genome"), 
-                  choices = get_genomes(),
-                  selected = "B73"),
+      selectInput("baseGenome", label = h3("Base Genome"), choices = NULL),
       fileInput("bed", "Choose bed file",
                 multiple = FALSE,
                 accept = c("text/csv",
