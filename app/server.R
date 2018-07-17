@@ -1,13 +1,17 @@
 library(DT)
 library(shiny)
-source("utils.R")
+
 
 shinyServer(function(input, output, session) {
   observe({
-    updateSelectInput(session, 'baseGenome', choices = getGenomes())
+    source("utils.R")    
+    baseGenome <- isolate(input$baseGenome)
+    updateSelectInput(session, 'baseGenome', choices = genomes,selected = baseGenome)
     updateSelectInput(session, "alignGenome", choices=setdiff(genomes,input$baseGenome))
     updateSelectizeInput(session, 'geneID', choices = genes[[input$baseGenome]], server = TRUE)
-    updateSelectizeInput(session, 'effectType', choices = seq_vars$Name, server = TRUE)
+    
+    print(as.character(unlist(so_obo[["name"]])))
+    updateSelectizeInput(session, 'effectType', choices = as.character(so_obo[["name"]]), server = TRUE)
   })
   
   locSNPs <- eventReactive(input$getLocSNPs, {
