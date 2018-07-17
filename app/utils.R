@@ -16,6 +16,11 @@ genes <- lapply(config$files$genes,function(x){
   }
   out
 })
+
+get_genomes <- function(){
+  config <- jsonlite::read_json("data/config/config.json")
+  return(config$genomes)
+}
 vcfFiles = config$files$VCF
 
 loc_cols_wanted = c("seqnames","start","end","GENEID","tx_name","LOCATION")
