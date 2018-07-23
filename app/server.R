@@ -9,8 +9,6 @@ shinyServer(function(input, output, session) {
     updateSelectInput(session, 'baseGenome', choices = genomes,selected = baseGenome)
     updateSelectInput(session, "alignGenome", choices=setdiff(genomes,input$baseGenome))
     updateSelectizeInput(session, 'geneID', choices = genes[[input$baseGenome]], server = TRUE)
-    
-    print(as.character(unlist(so_obo[["name"]])))
     updateSelectizeInput(session, 'effectType', choices = as.character(so_obo[["name"]]), server = TRUE)
   })
   

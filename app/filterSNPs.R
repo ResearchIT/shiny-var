@@ -51,7 +51,11 @@ getSNPs <-  function(baseGenome,alignGenome,locus){
     fmt_names = unlist(strsplit(vcf_getFormat(vcffile),":"))
     fmt_values = unlist(strsplit(vcf_getSample(vcffile,as.integer(0)),":"))
     names(fmt_values) <- fmt_names
-    ad <- unlist(strsplit(fmt_values["AD"],","))
+    ad <- unlist(strsplit(fmt_values["AD"],","))[1:2]
+    if(length(unlist(strsplit(fmt_values["AD"],",")))>2){
+      ad[2] <- sum(as.numeric(unlist(strsplit(fmt_values["AD"],","))[-1]))
+    }
+    
     names(ad) <- c("Ref_Dep","Alt_dep")
     var_type <- ifelse(vcf_isINDEL(vcffile),"INDEL","SNP")
     qual = vcf_getQual(vcffile)
@@ -69,6 +73,7 @@ getSNPs <-  function(baseGenome,alignGenome,locus){
     }
     setcolorder(sel_ann,c("Gene","Effect","Impact"))
     tmp_row <- cbind(chr,pos,ref,alt,var_type,qual,t(ad),sel_ann)
+    print(tmp_row)
     if(is.null(all_snps)){
       all_snps <- data.table(tmp_row)
     }else{
