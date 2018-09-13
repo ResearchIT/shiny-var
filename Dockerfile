@@ -19,5 +19,6 @@ RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("Rsamtools")
 
 # #Copy the app files to the correct location and install needed packages
 COPY app/ /srv/shiny-server/shiny-var/
+RUN ls -lh
 
 EXPOSE 3838
