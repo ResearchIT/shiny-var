@@ -10,7 +10,7 @@ docker run -d \
 else
 	docker run -d \
 		-p 3838:3838 \
-		--mount type=bind,source="$(pwd)"/data,target=/srv/shiny-server/shiny-var/data \
+		--mount type=bind,source="/media/data/lab_data/isilon-evlab/webapps/shiny-var"/data,target=/srv/shiny-server/shiny-var/data \
 		wkpalan/shiny-var
 fi
 	# bash
