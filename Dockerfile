@@ -3,10 +3,10 @@ MAINTAINER Kokulapalan Wimalanathan <kokulapalan@gmail.com>
 ENV REFRESHED_AT 2018-07-17
 ENV TZ=America/Chicago
 
-RUN echo "America/Chicago" > /etc/timezone
+#RUN echo "America/Chicago" > /etc/timezone
 
 # Install yum dependencies
-RUN yum -y install openssl-devel libcurl-devel mariadb-devel libxml2 libxml2-devel
+RUN yum -y install openssl-devel libcurl-devel mariadb-devel libxml2 libxml2-devel tzdata
 
 #Change the Rscript to enable multicore installations
 RUN ls
