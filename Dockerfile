@@ -6,7 +6,7 @@ ENV TZ=America/Chicago
 #RUN echo "America/Chicago" > /etc/timezone
 
 # Install yum dependencies
-RUN yum -y install openssl-devel libcurl-devel mariadb-devel libxml2 libxml2-devel tzdata
+RUN /usr/bin/sudo -n yum -y install openssl-devel libcurl-devel mariadb-devel libxml2 libxml2-devel tzdata
 
 #Change the Rscript to enable multicore installations
 RUN ls
@@ -18,7 +18,7 @@ RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("GenomicFeat
 RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("Rsamtools"),Ncpus=8,INSTALL_opts="--no-html");'
 
 # #Copy the app files to the correct location and install needed packages
-COPY app/ /srv/shiny-server/shiny-var/
+COPY /usr/bin/sudo -n app/ /srv/shiny-server/shiny-var/
 RUN ls -lh
 
 EXPOSE 3838
