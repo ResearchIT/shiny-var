@@ -1,0 +1,10 @@
+data.table
+ontologyIndex
+jsonlite
+DT
+shiny
+WhopGenome
+RMariaDB
+RMySQL
+GenomicFeatures
+Rsamtools
