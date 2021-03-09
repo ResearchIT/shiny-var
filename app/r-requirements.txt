@@ -6,5 +6,6 @@ shiny
 WhopGenome
 RMariaDB
 RMySQL
+BiocManager
 GenomicFeatures
 Rsamtools
